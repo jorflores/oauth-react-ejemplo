@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import RedirectLogin from "./RedirectLogin";
-import Logout from "./Logout";
-import UserData from "./UserData";
-import ListUsers from "./ListUsers";
-import axios from "axios";
+import RedirectLogin from "../components/RedirectLogin";
+import Logout from "../components/logout";
 
 function Profile() {
   const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
@@ -26,7 +23,7 @@ function Profile() {
     );
   }
 
-  const userRoles = user["https://nagarro.example.com/roles"];
+  const userRoles = user[`${process.env.REACT_APP_AUTH0_NAMESPACE}`];
   console.log(`User roles: ${userRoles}`);
 
   return (

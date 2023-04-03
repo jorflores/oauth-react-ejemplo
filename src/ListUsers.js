@@ -13,14 +13,14 @@ function ListUsers() {
 
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: `https://${REACT_APP_DOMAIN}/api/v2/`,
+          audience: `https://${process.env.REACT_APP_DOMAIN}/api/v2/`,
           scope: "read:current_user read:roles ",
         },
       });
 
       console.log();
       try {
-        const userDetailsByIdUrl = `https://${REACT_APP_DOMAIN}/api/v2/users`;
+        const userDetailsByIdUrl = `https://${process.env.REACT_APP_DOMAIN}/api/v2/users`;
 
         const metadataResponse = await fetch(userDetailsByIdUrl, {
           headers: {
@@ -39,7 +39,7 @@ function ListUsers() {
     };
 
     const getToken = async () => {
-      let get_t = await fetch(`${REACT_APP_MANAGEMENT_API}`);
+      let get_t = await fetch(`${process.env.REACT_APP_MANAGEMENT_API}`);
 
       const t = await get_t.json();
       setToken(t.token);
