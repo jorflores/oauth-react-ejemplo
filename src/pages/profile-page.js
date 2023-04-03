@@ -23,8 +23,8 @@ function Profile() {
     );
   }
 
-  const userRoles = user[`${process.env.REACT_APP_AUTH0_NAMESPACE}`];
-  console.log(`User roles: ${userRoles}`);
+  const userRoles = user?.[`${process.env.REACT_APP_AUTH0_NAMESPACE}`] ?? [];
+  console.log(`${process.env.REACT_APP_AUTH0_NAMESPACE}`);
 
   return (
     isAuthenticated && (

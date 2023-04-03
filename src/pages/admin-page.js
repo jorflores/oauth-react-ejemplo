@@ -9,6 +9,7 @@ function AdminPage() {
 
   useEffect(() => {
     const userRoles = user?.[`${process.env.REACT_APP_AUTH0_NAMESPACE}`] ?? [];
+    console.log(`URL: ${process.env.REACT_APP_AUTH0_NAMESPACE}`);
     setIsAdmin(userRoles.includes("admin"));
   }, [user]);
 
